@@ -33,9 +33,10 @@ import Parse from 'parse/node';
 
 // Role Hierarchy
 // --------------------------------
-var roleQuery = new Parse.Query(Parse.Role);
-var administratorsQuery =  new Parse.Query(Parse.Role).equalTo('name', 'Administrator');
-var moderatorsQuery =  new Parse.Query(Parse.Role).equalTo('name', 'Moderators');
+// var roleQuery = new Parse.Query(Parse.Role);
+var administratorsQuery = new Parse.Query(Parse.Role)
+                          .equalTo('name', 'Administrator');
+var moderatorsQuery = new Parse.Query(Parse.Role).equalTo('name', 'Moderators');
 
 // administratorsQuery.first()
 //   .then(administrators => {

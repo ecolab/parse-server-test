@@ -10,17 +10,17 @@ Parse.Cloud.beforeSave('Product', (req, res) => {
   // if (!req.object.get('name')) {
   //   res.error('name of product not null');
   // }
-  
+
   let Product = Parse.Object.extend('Product');
   let ProductQuery = new Parse.Query(Product);
   return ProductQuery.equalTo('name', req.object.get('name'))
   .first()
   .then(product => {
     if (!product) return res.success();
-    
+
     return res.error('Sản phẩm đã tồn tại');
   })
-  .catch(console.error)
-  
+  .catch(console.error);
+
   // res.success();
 });
