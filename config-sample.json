@@ -1,0 +1,14 @@
+{
+  "development": {
+    "DATABASE_URI": "mongodb://test:test@ds027425.mlab.com:27425/parse-server-test",
+    "DASHBOARD_AUTH": "admin:admin"
+  },
+  "test": {
+    "DATABASE_URI": "mongodb://test:test@ds027425.mlab.com:27425/parse-server-test",
+    "DASHBOARD_AUTH": "admin:admin"
+  },
+  "production": {
+    "DATABASE_URI": "mongodb://test:test@ds027425.mlab.com:27425/parse-server-test",
+    "DASHBOARD_AUTH": "admin:admin"
+  }
+}
