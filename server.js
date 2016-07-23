@@ -5,15 +5,19 @@ import {
   ParseServer
 }
 from 'parse-server';
-import ParseDashboard from 'parse-dashboard';
+import parseDashboard from 'parse-dashboard';
+
+const env = process.env.NODE_ENV || 'development';
+const config = require('./config.json')[env];
 
 const SERVER_PORT = process.env.PORT || 8080;
 const SERVER_HOST = process.env.HOST || 'localhost';
 const APP_ID = process.env.APP_ID || 'oss-f8-app-2016';
-const MASTER_KEY = process.env.MASTER_KEY || '70c6093dba5a7e55968a1c7ad3dd3e5a74ef5cac';
-const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/dev';
+const MASTER_KEY = process.env.MASTER_KEY ||
+                  '70c6093dba5a7e55968a1c7ad3dd3e5a74ef5cac';
+const DATABASE_URI = config.DATABASE_URI || process.env.DATABASE_URI || 'mongodb://localhost:27017/dev';
 const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
-const DASHBOARD_AUTH = process.env.DASHBOARD_AUTH || 'admin:admin';
+const DASHBOARD_AUTH = process.env.DASHBOARD_AUTH || config.DASHBOARD_AUTH;
 
 Parse.initialize(APP_ID);
 Parse.serverURL = `http://localhost:${SERVER_PORT}/parse`;
@@ -45,7 +49,7 @@ if (IS_DEVELOPMENT) {
   }
   server.use(
     '/dashboard',
-    ParseDashboard({
+    parseDashboard({
       apps: [{
         serverURL: '/parse',
         appId: APP_ID,
