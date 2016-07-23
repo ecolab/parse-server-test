@@ -29,7 +29,7 @@ user.set('password', 'laclac');
 //   .catch(console.error);
 
 var Profile = Parse.Object.extend('Profile');
-var profile = new Profile;
+var profile = new Profile();
 profile.set('name', 'Nguyễn Hồng Phúc');
 profile.set('email', 'hongphuc0911@gmail.com');
 profile.set('mobilePhone', '0904905903');
@@ -59,7 +59,6 @@ Promise.all([
 })
 .then(console.log)
 .catch(console.error);
-
 
 // Logging In
 // ------------------------------------
