@@ -2,7 +2,7 @@ import Parse from 'parse/node';
 
 // One-To-One
 var Customer = Parse.Object.extend('Customer');
-var customer = new Customer;
+var customer = new Customer();
 customer.set('name', 'Áo phông 2');
 customer.set('address', 'Ecopark');
 customer.set('district', 'Văn Giang');

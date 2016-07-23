@@ -2,7 +2,7 @@ import Parse from 'parse/node';
 
 // Saving Objects
 var Product = Parse.Object.extend('Product');
-var product = new Product;
+var product = new Product();
 product.set('name', 'Áo phông 2');
 product.set('price', 150000);
 product.set('sold', false);
